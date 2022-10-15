@@ -3,7 +3,7 @@ import { Section } from 'components/Section/Section';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Statistics } from 'components/Statistics/Statistics';
 import { Notification } from 'components/Notification/Notification';
-// import css from '../Feedback/Feedback.module.css';
+import css from '../Feedback/Feedback.module.css';
 
 export class Feedback extends React.Component {
   state = {
@@ -12,21 +12,9 @@ export class Feedback extends React.Component {
     bad: 0,
   };
 
-  increaseGoodReviewsNumber = event => {
+  increaseReviewsNumber = event => {
     this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
-  };
-
-  increaseNeutralReviewsNumber = event => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-
-  increaseBadReviewsNumber = event => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
+      [event.target.innerText]: prevState[event.target.innerText] + 1,
     }));
   };
 
@@ -42,12 +30,11 @@ export class Feedback extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={css.feedback}>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            onBadIncrement={this.increaseBadReviewsNumber}
-            onGoodIncrement={this.increaseGoodReviewsNumber}
-            onNeutralIncrement={this.increaseNeutralReviewsNumber}
+            options={this.state}
+            onLeaveFeedback={this.increaseReviewsNumber}
           />
         </Section>
 

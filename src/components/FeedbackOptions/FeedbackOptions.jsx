@@ -1,21 +1,17 @@
 import React from 'react';
+import css from '../FeedbackOptions/FeedbackOptions.module.css';
 
-export const FeedbackOptions = ({
-  onGoodIncrement,
-  onNeutralIncrement,
-  onBadIncrement,
-}) => {
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <div className="feedback_options">
-      <button type="button" onClick={onGoodIncrement}>
-        Good
+    <div className={css.feedback_options}>
+      <button type="button" className={css.button} onClick={onLeaveFeedback}>
+        good
       </button>
-      <button type="button" onClick={onNeutralIncrement}>
-        Neutral
+      <button type="button" className={css.button} onClick={onLeaveFeedback}>
+        neutral
       </button>
-
-      <button type="button" onClick={onBadIncrement}>
-        Bad
+      <button type="button" className={css.button} onClick={onLeaveFeedback}>
+        bad
       </button>
     </div>
   );
