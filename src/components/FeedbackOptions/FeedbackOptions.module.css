@@ -12,6 +12,7 @@
   padding: 16px;
   background-color: #ebecf0;
   text-shadow: 1px 1px 0 white;
+  text-transform: capitalize;
 
   color: #61677c;
   font-weight: bold;
