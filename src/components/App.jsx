@@ -48,7 +48,7 @@ export class App extends React.Component {
         </Section>
 
         <Section title="Statistics">
-          {this.countPositiveFeedbackPercentage() === 0 ? (
+          {this.countTotalFeedback() === 0 ? (
             <Notification message="There is no feedback" />
           ) : (
             <Statistics
